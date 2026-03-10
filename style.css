@@ -259,18 +259,19 @@ li span {
 }
 
 .cev-tab {
-    padding: 7px 14px;
+    padding: 8px 16px;
     background: #1a1a2e;
     color: #888;
     border: 1px solid #2a2a3e;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     transition: all 0.3s;
 }
 
 .cev-tab:hover {
     color: white;
+    background: #2a2a3e;
 }
 
 .cev-tab.active {
@@ -292,7 +293,8 @@ li span {
     align-items: center;
 }
 
-.cev-row input {
+.cev-row input[type="number"],
+.cev-row input[type="text"] {
     flex: 1;
     padding: 14px;
     background: #0f0f1a;
@@ -301,6 +303,12 @@ li span {
     color: white;
     font-size: 1.2rem;
     outline: none;
+    -moz-appearance: textfield;
+}
+
+.cev-row input[type="number"]::-webkit-inner-spin-button,
+.cev-row input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
 }
 
 .cev-row input:focus {
@@ -315,14 +323,25 @@ li span {
     color: white;
     font-size: 0.9rem;
     outline: none;
-    min-width: 100px;
+    min-width: 120px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.cev-row select:focus {
+    border-color: #16c79a;
 }
 
 .cev-ok {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #16c79a;
-    padding: 8px;
+    padding: 10px;
+    letter-spacing: 2px;
 }
 
 .cev-hizli {
@@ -330,14 +349,14 @@ li span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 .cev-hizli-item {
     background: #1a1a2e;
     border: 1px solid #2a2a3e;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 10px 14px;
     display: flex;
     justify-content: space-between;
     color: #aaa;
