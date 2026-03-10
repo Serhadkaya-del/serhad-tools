@@ -14,6 +14,7 @@
             <button class="tab active" onclick="tabDegistir('todo')">Yapılacaklar</button>
             <button class="tab" onclick="tabDegistir('hesap')">Hesap Makinesi</button>
             <button class="tab" onclick="tabDegistir('notlar')">Notlar</button>
+            <button class="tab" onclick="tabDegistir('takvim')">Takvim</button>
         </nav>
     </header>
 
@@ -59,6 +60,25 @@
             <div class="not-butonlar">
                 <button onclick="notKaydet()">Kaydet</button>
                 <button onclick="notTemizle()">Temizle</button>
+            </div>
+        </section>
+        <!-- Takvim -->
+        <section id="takvim" class="panel">
+            <div class="takvim-header">
+                <button onclick="ayDegistir(-1)">&lt;</button>
+                <h2 id="takvimBaslik"></h2>
+                <button onclick="ayDegistir(1)">&gt;</button>
+            </div>
+            <div class="takvim-gunler">
+                <span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span>
+            </div>
+            <div id="takvimGrid" class="takvim-grid"></div>
+            <div id="gunDetay" class="gun-detay"></div>
+            <div class="takvim-legend">
+                <span><i class="dot tatil"></i> Resmi Tatil</span>
+                <span><i class="dot onemli"></i> Anma/Kutlama</span>
+                <span><i class="dot doga"></i> Doğa Olayı</span>
+                <span><i class="dot dini"></i> Dini Gün</span>
             </div>
         </section>
     </main>
