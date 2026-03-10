@@ -12,9 +12,15 @@ function vcAra() {
 
     notlar.forEach(not => {
         const metin = not.textContent.toLowerCase();
-        if (!aranan || metin.includes(aranan)) {
+        const eslesti = metin.includes(aranan);
+
+        if (!aranan) {
             not.style.display = '';
-            if (aranan) not.classList.add('acik');
+            not.classList.remove('acik');
+            gorunen++;
+        } else if (eslesti) {
+            not.style.display = '';
+            not.classList.add('acik');
             gorunen++;
         } else {
             not.style.display = 'none';
