@@ -702,9 +702,9 @@ footer {
 }
 
 /* Vibe Coding */
-.tab.active[onclick*="vibecoding"] {
-    background: #a855f7;
-    border-color: #a855f7;
+.tab-vc.active {
+    background: #a855f7 !important;
+    border-color: #a855f7 !important;
 }
 
 .vc-header {
@@ -769,7 +769,7 @@ footer {
 
 .vc-not {
     background: #1a1a2e;
-    border: 1px solid #2a2a3e;
+    border: 1px solid #3a2a5e;
     border-radius: 12px;
     overflow: hidden;
     transition: border-color 0.2s;
@@ -866,7 +866,7 @@ footer {
     gap: 8px;
 }
 
-.vc-araç {
+.vc-arac {
     color: #e2b3ff;
     font-weight: bold;
     white-space: nowrap;

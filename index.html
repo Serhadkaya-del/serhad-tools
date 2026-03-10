@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serhad Tools</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
             <button class="tab" onclick="tabDegistir('notlar')">Notlar</button>
             <button class="tab" onclick="tabDegistir('takvim')">Takvim</button>
             <button class="tab" onclick="tabDegistir('sozluk')">Dev Sozluk</button>
-            <button class="tab" onclick="tabDegistir('vibecoding')">Vibe Coding</button>
+            <button class="tab tab-vc" onclick="tabDegistir('vibecoding')">Vibe Coding</button>
         </nav>
     </header>
 
@@ -207,48 +207,48 @@
                         <div class="vc-bolum">
                             <div class="vc-bolum-baslik">CI/CD Pipeline</div>
                             <div class="vc-liste">
-                                <div class="vc-madde"><span class="vc-araç">Fastlane</span> Build, sign, deploy, screenshot otomasyonu</div>
-                                <div class="vc-madde"><span class="vc-araç">Bitrise</span> Mobil odakli CI/CD (özellikle iOS icin güclü)</div>
-                                <div class="vc-madde"><span class="vc-araç">GitHub Actions</span> Genel amacli, hazir mobil workflow'lar var</div>
-                                <div class="vc-madde"><span class="vc-araç">Codemagic</span> Flutter / React Native icin özel</div>
+                                <div class="vc-madde"><span class="vc-arac">Fastlane</span> Build, sign, deploy, screenshot otomasyonu</div>
+                                <div class="vc-madde"><span class="vc-arac">Bitrise</span> Mobil odakli CI/CD (özellikle iOS icin güclü)</div>
+                                <div class="vc-madde"><span class="vc-arac">GitHub Actions</span> Genel amacli, hazir mobil workflow'lar var</div>
+                                <div class="vc-madde"><span class="vc-arac">Codemagic</span> Flutter / React Native icin özel</div>
                             </div>
                         </div>
 
                         <div class="vc-bolum">
                             <div class="vc-bolum-baslik">Build &amp; Signing</div>
                             <div class="vc-liste">
-                                <div class="vc-madde"><span class="vc-araç">Fastlane Match</span> iOS sertifikalarini Git repo'da yönetir, takim paylaşimi</div>
-                                <div class="vc-madde"><span class="vc-araç">Fastlane Cert/Sigh</span> Provision profile otomasyonu</div>
-                                <div class="vc-madde"><span class="vc-araç">Gradle</span> Android build variant ve flavor otomasyonu</div>
+                                <div class="vc-madde"><span class="vc-arac">Fastlane Match</span> iOS sertifikalarini Git repo'da yönetir, takim paylaşimi</div>
+                                <div class="vc-madde"><span class="vc-arac">Fastlane Cert/Sigh</span> Provision profile otomasyonu</div>
+                                <div class="vc-madde"><span class="vc-arac">Gradle</span> Android build variant ve flavor otomasyonu</div>
                             </div>
                         </div>
 
                         <div class="vc-bolum">
                             <div class="vc-bolum-baslik">Test Otomasyonu</div>
                             <div class="vc-liste">
-                                <div class="vc-madde"><span class="vc-araç">XCUITest + Scan</span> iOS native test</div>
-                                <div class="vc-madde"><span class="vc-araç">Espresso</span> Android native test</div>
-                                <div class="vc-madde"><span class="vc-araç">Detox</span> React Native E2E testi</div>
-                                <div class="vc-madde"><span class="vc-araç">Appium</span> Cross-platform, gercek cihazda test</div>
-                                <div class="vc-madde"><span class="vc-araç">Firebase Test Lab</span> Bulutta gercek cihaz testi</div>
+                                <div class="vc-madde"><span class="vc-arac">XCUITest + Scan</span> iOS native test</div>
+                                <div class="vc-madde"><span class="vc-arac">Espresso</span> Android native test</div>
+                                <div class="vc-madde"><span class="vc-arac">Detox</span> React Native E2E testi</div>
+                                <div class="vc-madde"><span class="vc-arac">Appium</span> Cross-platform, gercek cihazda test</div>
+                                <div class="vc-madde"><span class="vc-arac">Firebase Test Lab</span> Bulutta gercek cihaz testi</div>
                             </div>
                         </div>
 
                         <div class="vc-bolum">
                             <div class="vc-bolum-baslik">Uygulama Kalitesi</div>
                             <div class="vc-liste">
-                                <div class="vc-madde"><span class="vc-araç">SwiftLint / Ktlint</span> Kod stili kontrolü</div>
-                                <div class="vc-madde"><span class="vc-araç">Danger</span> PR'larda otomatik code review yorumlari</div>
-                                <div class="vc-madde"><span class="vc-araç">SonarQube</span> Statik kod analizi</div>
+                                <div class="vc-madde"><span class="vc-arac">SwiftLint / Ktlint</span> Kod stili kontrolü</div>
+                                <div class="vc-madde"><span class="vc-arac">Danger</span> PR'larda otomatik code review yorumlari</div>
+                                <div class="vc-madde"><span class="vc-arac">SonarQube</span> Statik kod analizi</div>
                             </div>
                         </div>
 
                         <div class="vc-bolum">
                             <div class="vc-bolum-baslik">Dagitim &amp; Monitoring</div>
                             <div class="vc-liste">
-                                <div class="vc-madde"><span class="vc-araç">Firebase App Distribution</span> Internal test dagitimi</div>
-                                <div class="vc-madde"><span class="vc-araç">TestFlight (Fastlane pilot)</span> iOS beta dagitimi</div>
-                                <div class="vc-madde"><span class="vc-araç">Crashlytics / Sentry</span> Crash monitoring</div>
+                                <div class="vc-madde"><span class="vc-arac">Firebase App Distribution</span> Internal test dagitimi</div>
+                                <div class="vc-madde"><span class="vc-arac">TestFlight (Fastlane pilot)</span> iOS beta dagitimi</div>
+                                <div class="vc-madde"><span class="vc-arac">Crashlytics / Sentry</span> Crash monitoring</div>
                             </div>
                         </div>
 
@@ -270,10 +270,10 @@ end</pre>
                         <div class="vc-bolum">
                             <div class="vc-bolum-baslik">Oneri Sirasi (Baslangic)</div>
                             <div class="vc-liste">
-                                <div class="vc-madde"><span class="vc-no">1</span> <span class="vc-araç">Fastlane Match</span> → Sertifika derdini bitirir</div>
-                                <div class="vc-madde"><span class="vc-no">2</span> <span class="vc-araç">GitHub Actions + Fastlane</span> → Her PR'da otomatik build</div>
-                                <div class="vc-madde"><span class="vc-no">3</span> <span class="vc-araç">Firebase App Distribution</span> → Tester'lara kolay dagitim</div>
-                                <div class="vc-madde"><span class="vc-no">4</span> <span class="vc-araç">Danger</span> → Code review kalitesi</div>
+                                <div class="vc-madde"><span class="vc-no">1</span> <span class="vc-arac">Fastlane Match</span> → Sertifika derdini bitirir</div>
+                                <div class="vc-madde"><span class="vc-no">2</span> <span class="vc-arac">GitHub Actions + Fastlane</span> → Her PR'da otomatik build</div>
+                                <div class="vc-madde"><span class="vc-no">3</span> <span class="vc-arac">Firebase App Distribution</span> → Tester'lara kolay dagitim</div>
+                                <div class="vc-madde"><span class="vc-no">4</span> <span class="vc-arac">Danger</span> → Code review kalitesi</div>
                             </div>
                         </div>
 
