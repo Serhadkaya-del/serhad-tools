@@ -1,3 +1,39 @@
+// --- Vibe Coding ---
+function vcToggle(baslik) {
+    baslik.closest('.vc-not').classList.toggle('acik');
+}
+
+function vcAra() {
+    const aranan = document.getElementById('vcAraInput').value.toLowerCase().trim();
+    const notlar = document.querySelectorAll('#vcNotlar .vc-not');
+    const bos = document.getElementById('vcBosmesaj');
+    const sayac = document.getElementById('vcSayac');
+    let gorunen = 0;
+
+    notlar.forEach(not => {
+        const metin = not.textContent.toLowerCase();
+        if (!aranan || metin.includes(aranan)) {
+            not.style.display = '';
+            if (aranan) not.classList.add('acik');
+            gorunen++;
+        } else {
+            not.style.display = 'none';
+            not.classList.remove('acik');
+        }
+    });
+
+    bos.style.display = gorunen === 0 ? 'block' : 'none';
+    sayac.textContent = aranan ? gorunen + ' not bulundu' : notlar.length + ' not';
+}
+
+window.addEventListener('load', function() {
+    const sayac = document.getElementById('vcSayac');
+    if (sayac) {
+        const notlar = document.querySelectorAll('#vcNotlar .vc-not');
+        sayac.textContent = notlar.length + ' not';
+    }
+});
+
 // --- Tab Değiştirme ---
 function tabDegistir(id) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));

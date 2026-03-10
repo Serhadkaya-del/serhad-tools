@@ -700,3 +700,202 @@ footer {
     color: #444;
     font-size: 0.85rem;
 }
+
+/* Vibe Coding */
+.tab.active[onclick*="vibecoding"] {
+    background: #a855f7;
+    border-color: #a855f7;
+}
+
+.vc-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.vc-header h2 {
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+}
+
+.vc-header p {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.vc-arama {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.vc-arama input {
+    width: 100%;
+    padding: 13px 18px;
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.vc-arama input:focus {
+    border-color: #a855f7;
+}
+
+.vc-sayac {
+    display: block;
+    text-align: right;
+    font-size: 0.78rem;
+    color: #555;
+    margin-top: 6px;
+}
+
+.vc-bos-mesaj {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    padding: 30px;
+}
+
+.vc-notlar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vc-not {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.vc-not:hover {
+    border-color: #a855f7;
+}
+
+.vc-not-baslik {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.vc-baslik-sol {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.vc-emoji {
+    font-size: 1.2rem;
+}
+
+.vc-baslik-sag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vc-badge {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #2a2a3e;
+    color: #a855f7;
+    border: 1px solid #a855f733;
+}
+
+.vc-chevron {
+    color: #666;
+    font-size: 1.3rem;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.vc-not.acik .vc-chevron {
+    transform: rotate(90deg);
+}
+
+.vc-icerik {
+    display: none;
+    padding: 0 16px 16px;
+    border-top: 1px solid #2a2a3e;
+}
+
+.vc-not.acik .vc-icerik {
+    display: block;
+}
+
+.vc-bolum {
+    margin-top: 14px;
+}
+
+.vc-bolum-baslik {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a855f7;
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #a855f722;
+}
+
+.vc-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.vc-madde {
+    font-size: 0.88rem;
+    color: #bbb;
+    line-height: 1.5;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.vc-araç {
+    color: #e2b3ff;
+    font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.vc-no {
+    background: #a855f733;
+    color: #a855f7;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.vc-kod {
+    background: #0f0f1a;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.78rem;
+    color: #16c79a;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    line-height: 1.6;
+    white-space: pre;
+}
