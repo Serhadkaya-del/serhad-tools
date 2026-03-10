@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serhad Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Serhad Tools</h1>
+        <p>Kullanışlı mini araçlar</p>
+        <nav>
+            <button class="tab active" onclick="tabDegistir('todo')">Yapılacaklar</button>
+            <button class="tab" onclick="tabDegistir('hesap')">Hesap Makinesi</button>
+            <button class="tab" onclick="tabDegistir('notlar')">Notlar</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Yapılacaklar -->
+        <section id="todo" class="panel active">
+            <div class="input-area">
+                <input type="text" id="todoInput" placeholder="Ne yapacaksın?">
+                <button onclick="ekle()">Ekle</button>
+            </div>
+            <ul id="liste"></ul>
+        </section>
+
+        <!-- Hesap Makinesi -->
+        <section id="hesap" class="panel">
+            <div id="ekran" class="ekran">0</div>
+            <div class="tuslar">
+                <button onclick="temizle()">C</button>
+                <button onclick="sil()">⌫</button>
+                <button onclick="yaz('%')">%</button>
+                <button class="operator" onclick="yaz('/')">÷</button>
+                <button onclick="yaz('7')">7</button>
+                <button onclick="yaz('8')">8</button>
+                <button onclick="yaz('9')">9</button>
+                <button class="operator" onclick="yaz('*')">×</button>
+                <button onclick="yaz('4')">4</button>
+                <button onclick="yaz('5')">5</button>
+                <button onclick="yaz('6')">6</button>
+                <button class="operator" onclick="yaz('-')">−</button>
+                <button onclick="yaz('1')">1</button>
+                <button onclick="yaz('2')">2</button>
+                <button onclick="yaz('3')">3</button>
+                <button class="operator" onclick="yaz('+')">+</button>
+                <button class="sifir" onclick="yaz('0')">0</button>
+                <button onclick="yaz('.')">.</button>
+                <button class="esittir" onclick="hesapla()">=</button>
+            </div>
+        </section>
+
+        <!-- Notlar -->
+        <section id="notlar" class="panel">
+            <textarea id="notAlani" placeholder="Notlarını buraya yaz..."></textarea>
+            <div class="not-butonlar">
+                <button onclick="notKaydet()">Kaydet</button>
+                <button onclick="notTemizle()">Temizle</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Serhad Kaya</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
