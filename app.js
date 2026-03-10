@@ -51,12 +51,188 @@ function sil() {
 function hesapla() {
     try {
         const sonuc = eval(islem);
+        document.getElementById('gecmis').textContent = islem + ' =';
         document.getElementById('ekran').textContent = sonuc;
         islem = String(sonuc);
     } catch (e) {
         document.getElementById('ekran').textContent = 'Hata';
         islem = '';
     }
+}
+
+// --- Hesap Tab Degistirme ---
+function hesapTabDegistir(id) {
+    document.querySelectorAll('.hesap-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.hesap-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    if (id === 'cevirici') cevKategori('uzunluk');
+}
+
+// --- Bilimsel Hesap Makinesi ---
+let bilimselIslem = '';
+
+function bilimselYaz(deger) {
+    bilimselIslem += deger;
+    const gosterim = bilimselIslem
+        .replace(/Math\.sin\(/g, 'sin(')
+        .replace(/Math\.cos\(/g, 'cos(')
+        .replace(/Math\.tan\(/g, 'tan(')
+        .replace(/Math\.log10\(/g, 'log(')
+        .replace(/Math\.log\(/g, 'ln(')
+        .replace(/Math\.sqrt\(/g, '√(')
+        .replace(/Math\.abs\(/g, '|')
+        .replace(/Math\.PI/g, 'π')
+        .replace(/Math\.E/g, 'e')
+        .replace(/\*\*/g, '^');
+    document.getElementById('bilimselEkran').textContent = gosterim || '0';
+}
+
+function bilimselTemizle() {
+    bilimselIslem = '';
+    document.getElementById('bilimselEkran').textContent = '0';
+    document.getElementById('bilimselGecmis').textContent = '';
+}
+
+function bilimselHesapla() {
+    try {
+        const sonuc = eval(bilimselIslem);
+        const gosterim = bilimselIslem
+            .replace(/Math\.sin\(/g, 'sin(')
+            .replace(/Math\.cos\(/g, 'cos(')
+            .replace(/Math\.tan\(/g, 'tan(')
+            .replace(/Math\.log10\(/g, 'log(')
+            .replace(/Math\.log\(/g, 'ln(')
+            .replace(/Math\.sqrt\(/g, '√(')
+            .replace(/Math\.abs\(/g, '|')
+            .replace(/Math\.PI/g, 'π')
+            .replace(/Math\.E/g, 'e')
+            .replace(/\*\*/g, '^');
+        document.getElementById('bilimselGecmis').textContent = gosterim + ' =';
+        document.getElementById('bilimselEkran').textContent = Number(sonuc.toFixed(10));
+        bilimselIslem = String(sonuc);
+    } catch (e) {
+        document.getElementById('bilimselEkran').textContent = 'Hata';
+        bilimselIslem = '';
+    }
+}
+
+// --- Cevirici ---
+const birimler = {
+    uzunluk: {
+        birimler: ['mm', 'cm', 'm', 'km', 'inc (inch)', 'ft (feet)', 'yard', 'mil (mile)'],
+        anahtarlar: ['mm', 'cm', 'm', 'km', 'inch', 'ft', 'yard', 'mile'],
+        metreye: [0.001, 0.01, 1, 1000, 0.0254, 0.3048, 0.9144, 1609.344]
+    },
+    agirlik: {
+        birimler: ['mg', 'g', 'kg', 'ton', 'ons (oz)', 'pound (lb)'],
+        anahtarlar: ['mg', 'g', 'kg', 'ton', 'oz', 'lb'],
+        grama: [0.001, 1, 1000, 1000000, 28.3495, 453.592]
+    },
+    sicaklik: {
+        birimler: ['Celsius (°C)', 'Fahrenheit (°F)', 'Kelvin (K)'],
+        anahtarlar: ['C', 'F', 'K'],
+        ozel: true
+    },
+    hiz: {
+        birimler: ['m/s', 'km/h', 'mil/h (mph)', 'knot'],
+        anahtarlar: ['ms', 'kmh', 'mph', 'knot'],
+        msye: [1, 0.277778, 0.44704, 0.514444]
+    },
+    alan: {
+        birimler: ['mm²', 'cm²', 'm²', 'km²', 'hektar', 'donum', 'acre'],
+        anahtarlar: ['mm2', 'cm2', 'm2', 'km2', 'hektar', 'donum', 'acre'],
+        m2ye: [0.000001, 0.0001, 1, 1000000, 10000, 1000, 4046.86]
+    },
+    hacim: {
+        birimler: ['mL', 'L', 'm³', 'galon (US)', 'bardak'],
+        anahtarlar: ['mL', 'L', 'm3', 'galon', 'bardak'],
+        litreye: [0.001, 1, 1000, 3.78541, 0.2366]
+    },
+    zaman: {
+        birimler: ['saniye', 'dakika', 'saat', 'gun', 'hafta', 'ay', 'yil'],
+        anahtarlar: ['sn', 'dk', 'saat', 'gun', 'hafta', 'ay', 'yil'],
+        saniyeye: [1, 60, 3600, 86400, 604800, 2592000, 31536000]
+    },
+    veri: {
+        birimler: ['Bit', 'Byte', 'KB', 'MB', 'GB', 'TB', 'PB'],
+        anahtarlar: ['bit', 'byte', 'KB', 'MB', 'GB', 'TB', 'PB'],
+        byteA: [0.125, 1, 1024, 1048576, 1073741824, 1099511627776, 1125899906842624]
+    }
+};
+
+let aktifKategori = 'uzunluk';
+
+function cevKategori(kat) {
+    aktifKategori = kat;
+    document.querySelectorAll('.cev-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const b1 = document.getElementById('cevBirim1');
+    const b2 = document.getElementById('cevBirim2');
+    b1.innerHTML = '';
+    b2.innerHTML = '';
+
+    birimler[kat].birimler.forEach((b, i) => {
+        b1.innerHTML += `<option value="${i}">${b}</option>`;
+        b2.innerHTML += `<option value="${i}">${b}</option>`;
+    });
+
+    if (birimler[kat].birimler.length > 1) b2.selectedIndex = 1;
+    document.getElementById('cevGirdi').value = '';
+    document.getElementById('cevSonuc').value = '';
+    document.getElementById('cevHizli').innerHTML = '';
+}
+
+function cevir() {
+    const deger = parseFloat(document.getElementById('cevGirdi').value);
+    if (isNaN(deger)) {
+        document.getElementById('cevSonuc').value = '';
+        document.getElementById('cevHizli').innerHTML = '';
+        return;
+    }
+
+    const i1 = parseInt(document.getElementById('cevBirim1').value);
+    const i2 = parseInt(document.getElementById('cevBirim2').value);
+    const kat = birimler[aktifKategori];
+    let sonuc;
+
+    if (aktifKategori === 'sicaklik') {
+        sonuc = sicaklikCevir(deger, i1, i2);
+    } else {
+        const carpanlar = kat.metreye || kat.grama || kat.msye || kat.m2ye || kat.litreye || kat.saniyeye || kat.byteA;
+        sonuc = deger * carpanlar[i1] / carpanlar[i2];
+    }
+
+    document.getElementById('cevSonuc').value = Number(sonuc.toFixed(8));
+
+    // Hizli cevrim tablosu
+    const hizli = document.getElementById('cevHizli');
+    hizli.innerHTML = '';
+    kat.birimler.forEach((b, i) => {
+        if (i === i1) return;
+        let s;
+        if (aktifKategori === 'sicaklik') {
+            s = sicaklikCevir(deger, i1, i);
+        } else {
+            const carpanlar = kat.metreye || kat.grama || kat.msye || kat.m2ye || kat.litreye || kat.saniyeye || kat.byteA;
+            s = deger * carpanlar[i1] / carpanlar[i];
+        }
+        hizli.innerHTML += `<div class="cev-hizli-item"><span>${b}</span><span>${Number(s.toFixed(6))}</span></div>`;
+    });
+}
+
+function sicaklikCevir(deger, kimden, kime) {
+    // Oncekelvin'e cevir
+    let kelvin;
+    if (kimden === 0) kelvin = deger + 273.15;        // C -> K
+    else if (kimden === 1) kelvin = (deger - 32) * 5/9 + 273.15; // F -> K
+    else kelvin = deger;                                // K
+
+    // Kelvin'den hedefe
+    if (kime === 0) return kelvin - 273.15;            // K -> C
+    if (kime === 1) return (kelvin - 273.15) * 9/5 + 32; // K -> F
+    return kelvin;                                      // K
 }
 
 // --- Notlar ---

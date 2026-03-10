@@ -150,6 +150,50 @@ li span {
 }
 
 /* Hesap Makinesi */
+.hesap-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.hesap-tab {
+    flex: 1;
+    padding: 8px;
+    background: #1a1a2e;
+    color: #888;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.hesap-tab:hover {
+    color: white;
+}
+
+.hesap-tab.active {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
+}
+
+.hesap-panel {
+    display: none;
+}
+
+.hesap-panel.active {
+    display: block;
+}
+
+.gecmis {
+    text-align: right;
+    color: #666;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    min-height: 22px;
+}
+
 .ekran {
     background: #1a1a2e;
     padding: 25px;
@@ -195,6 +239,113 @@ li span {
 
 .sifir {
     grid-column: span 2;
+}
+
+.bilimsel-tuslar {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.bilimsel-tuslar button {
+    padding: 14px !important;
+    font-size: 0.95rem !important;
+}
+
+/* Cevirici */
+.cevirici-kategori {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.cev-tab {
+    padding: 7px 14px;
+    background: #1a1a2e;
+    color: #888;
+    border: 1px solid #2a2a3e;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.cev-tab:hover {
+    color: white;
+}
+
+.cev-tab.active {
+    background: #16c79a;
+    color: white;
+    border-color: #16c79a;
+}
+
+.cevirici-alan {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.cev-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cev-row input {
+    flex: 1;
+    padding: 14px;
+    background: #0f0f1a;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.cev-row input:focus {
+    border-color: #16c79a;
+}
+
+.cev-row select {
+    padding: 14px 10px;
+    background: #0f0f1a;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    min-width: 100px;
+}
+
+.cev-ok {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #16c79a;
+    padding: 8px;
+}
+
+.cev-hizli {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    font-size: 0.8rem;
+}
+
+.cev-hizli-item {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    color: #aaa;
+}
+
+.cev-hizli-item span:last-child {
+    color: #16c79a;
+    font-weight: bold;
 }
 
 /* Notlar */

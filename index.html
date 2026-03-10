@@ -30,27 +30,103 @@
 
         <!-- Hesap Makinesi -->
         <section id="hesap" class="panel">
-            <div id="ekran" class="ekran">0</div>
-            <div class="tuslar">
-                <button onclick="temizle()">C</button>
-                <button onclick="sil()">⌫</button>
-                <button onclick="yaz('%')">%</button>
-                <button class="operator" onclick="yaz('/')">÷</button>
-                <button onclick="yaz('7')">7</button>
-                <button onclick="yaz('8')">8</button>
-                <button onclick="yaz('9')">9</button>
-                <button class="operator" onclick="yaz('*')">×</button>
-                <button onclick="yaz('4')">4</button>
-                <button onclick="yaz('5')">5</button>
-                <button onclick="yaz('6')">6</button>
-                <button class="operator" onclick="yaz('-')">−</button>
-                <button onclick="yaz('1')">1</button>
-                <button onclick="yaz('2')">2</button>
-                <button onclick="yaz('3')">3</button>
-                <button class="operator" onclick="yaz('+')">+</button>
-                <button class="sifir" onclick="yaz('0')">0</button>
-                <button onclick="yaz('.')">.</button>
-                <button class="esittir" onclick="hesapla()">=</button>
+            <div class="hesap-tabs">
+                <button class="hesap-tab active" onclick="hesapTabDegistir('standart')">Standart</button>
+                <button class="hesap-tab" onclick="hesapTabDegistir('bilimsel')">Bilimsel</button>
+                <button class="hesap-tab" onclick="hesapTabDegistir('cevirici')">Cevirici</button>
+            </div>
+
+            <!-- Standart Hesap Makinesi -->
+            <div id="standart" class="hesap-panel active">
+                <div id="gecmis" class="gecmis"></div>
+                <div id="ekran" class="ekran">0</div>
+                <div class="tuslar">
+                    <button onclick="temizle()">C</button>
+                    <button onclick="sil()">⌫</button>
+                    <button onclick="yaz('%')">%</button>
+                    <button class="operator" onclick="yaz('/')">÷</button>
+                    <button onclick="yaz('7')">7</button>
+                    <button onclick="yaz('8')">8</button>
+                    <button onclick="yaz('9')">9</button>
+                    <button class="operator" onclick="yaz('*')">×</button>
+                    <button onclick="yaz('4')">4</button>
+                    <button onclick="yaz('5')">5</button>
+                    <button onclick="yaz('6')">6</button>
+                    <button class="operator" onclick="yaz('-')">−</button>
+                    <button onclick="yaz('1')">1</button>
+                    <button onclick="yaz('2')">2</button>
+                    <button onclick="yaz('3')">3</button>
+                    <button class="operator" onclick="yaz('+')">+</button>
+                    <button class="sifir" onclick="yaz('0')">0</button>
+                    <button onclick="yaz('.')">.</button>
+                    <button class="esittir" onclick="hesapla()">=</button>
+                </div>
+            </div>
+
+            <!-- Bilimsel Hesap Makinesi -->
+            <div id="bilimsel" class="hesap-panel">
+                <div id="bilimselGecmis" class="gecmis"></div>
+                <div id="bilimselEkran" class="ekran">0</div>
+                <div class="tuslar bilimsel-tuslar">
+                    <button onclick="bilimselYaz('Math.sin(')">sin</button>
+                    <button onclick="bilimselYaz('Math.cos(')">cos</button>
+                    <button onclick="bilimselYaz('Math.tan(')">tan</button>
+                    <button onclick="bilimselYaz('Math.PI')">π</button>
+                    <button onclick="bilimselYaz('Math.log(')">ln</button>
+                    <button onclick="bilimselYaz('Math.log10(')">log</button>
+                    <button onclick="bilimselYaz('Math.sqrt(')">√</button>
+                    <button onclick="bilimselYaz('Math.E')">e</button>
+                    <button onclick="bilimselYaz('**2')">x²</button>
+                    <button onclick="bilimselYaz('**3')">x³</button>
+                    <button onclick="bilimselYaz('**')">x^y</button>
+                    <button onclick="bilimselYaz('(')">(</button>
+                    <button onclick="bilimselYaz(')')">)</button>
+                    <button onclick="bilimselYaz('Math.abs(')">|x|</button>
+                    <button onclick="bilimselYaz('1/')">1/x</button>
+                    <button onclick="bilimselTemizle()">C</button>
+                    <button onclick="yaz('7')">7</button>
+                    <button onclick="yaz('8')">8</button>
+                    <button onclick="yaz('9')">9</button>
+                    <button class="operator" onclick="bilimselYaz('/')">÷</button>
+                    <button onclick="bilimselYaz('4')">4</button>
+                    <button onclick="bilimselYaz('5')">5</button>
+                    <button onclick="bilimselYaz('6')">6</button>
+                    <button class="operator" onclick="bilimselYaz('*')">×</button>
+                    <button onclick="bilimselYaz('1')">1</button>
+                    <button onclick="bilimselYaz('2')">2</button>
+                    <button onclick="bilimselYaz('3')">3</button>
+                    <button class="operator" onclick="bilimselYaz('-')">−</button>
+                    <button class="sifir" onclick="bilimselYaz('0')">0</button>
+                    <button onclick="bilimselYaz('.')">.</button>
+                    <button class="esittir" onclick="bilimselHesapla()">=</button>
+                    <button class="operator" onclick="bilimselYaz('+')">+</button>
+                </div>
+            </div>
+
+            <!-- Cevirici -->
+            <div id="cevirici" class="hesap-panel">
+                <div class="cevirici-kategori">
+                    <button class="cev-tab active" onclick="cevKategori('uzunluk')">Uzunluk</button>
+                    <button class="cev-tab" onclick="cevKategori('agirlik')">Agirlik</button>
+                    <button class="cev-tab" onclick="cevKategori('sicaklik')">Sicaklik</button>
+                    <button class="cev-tab" onclick="cevKategori('hiz')">Hiz</button>
+                    <button class="cev-tab" onclick="cevKategori('alan')">Alan</button>
+                    <button class="cev-tab" onclick="cevKategori('hacim')">Hacim</button>
+                    <button class="cev-tab" onclick="cevKategori('zaman')">Zaman</button>
+                    <button class="cev-tab" onclick="cevKategori('veri')">Veri</button>
+                </div>
+                <div class="cevirici-alan">
+                    <div class="cev-row">
+                        <input type="number" id="cevGirdi" placeholder="Deger girin" oninput="cevir()">
+                        <select id="cevBirim1" onchange="cevir()"></select>
+                    </div>
+                    <div class="cev-ok">⇅</div>
+                    <div class="cev-row">
+                        <input type="text" id="cevSonuc" readonly>
+                        <select id="cevBirim2" onchange="cevir()"></select>
+                    </div>
+                </div>
+                <div id="cevHizli" class="cev-hizli"></div>
             </div>
         </section>
 
