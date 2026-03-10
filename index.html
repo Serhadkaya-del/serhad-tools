@@ -15,6 +15,7 @@
             <button class="tab" onclick="tabDegistir('hesap')">Hesap Makinesi</button>
             <button class="tab" onclick="tabDegistir('notlar')">Notlar</button>
             <button class="tab" onclick="tabDegistir('takvim')">Takvim</button>
+            <button class="tab" onclick="tabDegistir('sozluk')">Dev Sozluk</button>
         </nav>
     </header>
 
@@ -156,6 +157,23 @@
                 <span><i class="dot doga"></i> Doğa Olayı</span>
                 <span><i class="dot dini"></i> Dini Gün</span>
             </div>
+        </section>
+
+        <!-- Dev Sozluk -->
+        <section id="sozluk" class="panel">
+            <div class="sozluk-arama">
+                <input type="text" id="sozlukAra" placeholder="Terim ara... (ornek: API, commit, bug)" oninput="sozlukFiltre()">
+            </div>
+            <div class="sozluk-kategoriler">
+                <button class="soz-tab active" onclick="sozlukKat('hepsi')">Hepsi</button>
+                <button class="soz-tab" onclick="sozlukKat('temel')">Temel</button>
+                <button class="soz-tab" onclick="sozlukKat('git')">Git</button>
+                <button class="soz-tab" onclick="sozlukKat('web')">Web</button>
+                <button class="soz-tab" onclick="sozlukKat('mobil')">Mobil</button>
+                <button class="soz-tab" onclick="sozlukKat('genel')">Genel</button>
+            </div>
+            <div id="sozlukSayac" class="sozluk-sayac"></div>
+            <div id="sozlukListe" class="sozluk-liste"></div>
         </section>
     </main>
 

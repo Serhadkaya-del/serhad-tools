@@ -410,6 +410,138 @@ li span {
     background: #2a2a3e;
 }
 
+/* Dev Sozluk */
+.sozluk-arama input {
+    width: 100%;
+    padding: 14px 18px;
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.sozluk-arama input:focus {
+    border-color: #f5a623;
+}
+
+.sozluk-kategoriler {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.soz-tab {
+    padding: 7px 14px;
+    background: #1a1a2e;
+    color: #888;
+    border: 1px solid #2a2a3e;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: all 0.3s;
+}
+
+.soz-tab:hover {
+    color: white;
+    background: #2a2a3e;
+}
+
+.soz-tab.active {
+    background: #f5a623;
+    color: #0f0f1a;
+    border-color: #f5a623;
+    font-weight: bold;
+}
+
+.sozluk-sayac {
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.sozluk-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.sozluk-liste::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sozluk-liste::-webkit-scrollbar-thumb {
+    background: #2a2a3e;
+    border-radius: 4px;
+}
+
+.sozluk-item {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sozluk-item:hover {
+    border-color: #f5a623;
+}
+
+.sozluk-item .terim-baslik {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.sozluk-item .terim {
+    font-weight: bold;
+    color: #f5a623;
+    font-size: 1rem;
+}
+
+.sozluk-item .kategori-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #2a2a3e;
+    color: #aaa;
+}
+
+.sozluk-item .okunus {
+    color: #666;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: 6px;
+}
+
+.sozluk-item .anlam {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.sozluk-item .ornek {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #0f0f1a;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: #16c79a;
+    display: none;
+}
+
+.sozluk-item.acik .ornek {
+    display: block;
+}
+
 /* Takvim */
 .takvim-header {
     display: flex;

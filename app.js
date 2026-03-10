@@ -60,6 +60,146 @@ function hesapla() {
     }
 }
 
+// --- Dev Sozluk ---
+const sozlukVerisi = [
+    // TEMEL
+    {terim:'API', okunus:'ey-pi-ay', anlam:'Application Programming Interface. Uygulamalarin birbirleriyle konusmasi icin kullanilan arayuz. Mesela hava durumu API\'si sana hava bilgisini verir.', ornek:'fetch("https://api.weather.com/istanbul") — hava durumu API\'sine istek atar', kat:'temel'},
+    {terim:'Bug', okunus:'bag', anlam:'Yazilimdaki hata. Kodun beklenmedik sekilde calismasi.', ornek:'"Login butonuna tiklaninca sayfa cokuyor" — bu bir bug', kat:'temel'},
+    {terim:'Debug', okunus:'di-bag', anlam:'Bug\'i bulmak ve duzeltmek. Kodun neden hatali calistigini arastirmak.', ornek:'console.log() ile degiskenleri yazdirip hatanin kaynagini bulmak = debug', kat:'temel'},
+    {terim:'Framework', okunus:'freym-vork', anlam:'Hazir yapi/iskelet. Uygulama gelistirmek icin temel yapitaslari sunar. Sifirdan yazma, hazir altyapiyi kullan.', ornek:'React Native bir framework — mobil uygulama yapmak icin hazir yapilar sunar', kat:'temel'},
+    {terim:'Library (Kutuphane)', okunus:'laybri', anlam:'Belirli bir isi yapan hazir kod paketi. Framework\'ten farki: sen onu cagirirsin, framework seni cagirir.', ornek:'Axios bir library — sadece HTTP istekleri yapmaya yarar', kat:'temel'},
+    {terim:'IDE', okunus:'ay-di-i', anlam:'Integrated Development Environment. Kod yazma, debug, test gibi her seyi yapabildigin program.', ornek:'VS Code, Android Studio, Xcode hepsi birer IDE', kat:'temel'},
+    {terim:'Variable (Degisken)', okunus:'veriyıbıl', anlam:'Veri saklayan kutu. Icerigini degistirebilirsin.', ornek:'let sayi = 5; // sayi adinda bir degisken, icinde 5 var', kat:'temel'},
+    {terim:'Function (Fonksiyon)', okunus:'fanksiyon', anlam:'Belirli bir isi yapan kod blogu. Bir kere yaz, istedigin kadar cagir.', ornek:'function topla(a, b) { return a + b; } // iki sayi toplar', kat:'temel'},
+    {terim:'String', okunus:'string', anlam:'Metin/yazi verisi. Tirnak icine yazilir.', ornek:'"Merhaba Serhad" bir string\'dir', kat:'temel'},
+    {terim:'Array (Dizi)', okunus:'erey', anlam:'Birden fazla veriyi sirayla tutan liste.', ornek:'let renkler = ["kirmizi", "mavi", "yesil"]; // 3 elemanli dizi', kat:'temel'},
+    {terim:'Object (Nesne)', okunus:'objekt', anlam:'Anahtar-deger ciflerinden olusan veri yapisi.', ornek:'let kullanici = { ad: "Serhad", yas: 30 };', kat:'temel'},
+    {terim:'Boolean', okunus:'buliın', anlam:'Sadece true (dogru) veya false (yanlis) olan veri tipi.', ornek:'let girisYapildi = true;', kat:'temel'},
+    {terim:'Loop (Dongu)', okunus:'luup', anlam:'Bir kod blogunu tekrar tekrar calistirmak.', ornek:'for (let i = 0; i < 10; i++) { ... } // 10 kere calisir', kat:'temel'},
+    {terim:'Conditional (Kosul)', okunus:'kondisyınıl', anlam:'Bir sart dogru ise bir sey yap, degilse baska sey yap.', ornek:'if (yas >= 18) { "girebilir" } else { "giremez" }', kat:'temel'},
+    {terim:'Syntax', okunus:'sintaks', anlam:'Programlama dilinin yazim kurallari. Yanlis yazarsan "syntax error" alisin.', ornek:'Noktali virgul unutmak, parantez kapatmamak = syntax error', kat:'temel'},
+    {terim:'Runtime', okunus:'rantaym', anlam:'Kodun calistigi an/ortam. Runtime error = kod calisirken olan hata.', ornek:'Var olmayan bir dosyayi okumaya calismak runtime error verir', kat:'temel'},
+    {terim:'Compile', okunus:'kompayl', anlam:'Yazdigin kodu makinenin anladigi dile cevirmek.', ornek:'Java kodunu javac ile compile edersin, .class dosyasi olusur', kat:'temel'},
+    {terim:'Console', okunus:'konsol', anlam:'Komut yazdigin ve ciktilari gordugun metin ekrani. Terminal de denir.', ornek:'console.log("merhaba") yazinca konsolda "merhaba" gorursun', kat:'temel'},
+    {terim:'Parameter / Argument', okunus:'parametre / arguman', anlam:'Fonksiyona disaridan verilen deger. Parametre = tanimda, arguman = cagirirken.', ornek:'function selamla(ad) {...} // ad parametre. selamla("Serhad") // "Serhad" arguman', kat:'temel'},
+    {terim:'Return', okunus:'ritorn', anlam:'Fonksiyonun sonuc dondermesi.', ornek:'function topla(a,b) { return a + b; } // toplami geri dondurur', kat:'temel'},
+    {terim:'Null / Undefined', okunus:'nal / andifaynd', anlam:'null = bilerek bos birakilan. undefined = hic deger atanmamis.', ornek:'let x; // undefined. let y = null; // bilerek bos', kat:'temel'},
+    {terim:'Callback', okunus:'kolbek', anlam:'Baska bir fonksiyona parametre olarak verilen fonksiyon. "Isini bitirince bunu cagir" mantigi.', ornek:'setTimeout(function() { alert("3 sn gecti") }, 3000);', kat:'temel'},
+    {terim:'Async / Await', okunus:'eysink / eveyt', anlam:'Asenkron islemleri beklemek icin kullanilir. API cagrisi gibi zaman alan islerde kullanilir.', ornek:'const veri = await fetch(url); // cevap gelene kadar bekle', kat:'temel'},
+    {terim:'JSON', okunus:'ceyson', anlam:'JavaScript Object Notation. Veri tasima formati. API\'ler genelde JSON dondurur.', ornek:'{"ad": "Serhad", "yas": 30} — bu bir JSON', kat:'temel'},
+    {terim:'Scope', okunus:'skop', anlam:'Bir degiskenin erisilebilir oldugu alan. Local scope = sadece fonksiyon icinde, global = her yerde.', ornek:'Fonksiyon icinde tanimlanan let disaridan erisilemez', kat:'temel'},
+
+    // GIT
+    {terim:'Repository (Repo)', okunus:'ripozitori', anlam:'Projenin tum dosyalarini ve degisiklik gecmisini tutan depo.', ornek:'git init — yeni bir repo olusturur', kat:'git'},
+    {terim:'Commit', okunus:'komit', anlam:'Degisiklikleri kayit altina almak. Bir "kayit noktasi" olusturur.', ornek:'git commit -m "login ekrani eklendi"', kat:'git'},
+    {terim:'Push', okunus:'pus', anlam:'Local commit\'leri uzak sunucuya (GitHub) gondermek.', ornek:'git push origin main — degisiklikleri GitHub\'a gonderir', kat:'git'},
+    {terim:'Pull', okunus:'pul', anlam:'Uzak sunucudan (GitHub) en son degisiklikleri cekip kendi bilgisayarina almak.', ornek:'git pull — takim arkadasinin push\'ladigi kodlari alirsin', kat:'git'},
+    {terim:'Clone', okunus:'klon', anlam:'Uzak bir repoyu kendi bilgisayarina kopyalamak.', ornek:'git clone https://github.com/user/proje.git', kat:'git'},
+    {terim:'Branch (Dal)', okunus:'branc', anlam:'Ana koddan bagimsiz calisma kopya. Yeni ozellik gelistirirken ana kodu bozmamak icin.', ornek:'git checkout -b yeni-ozellik — yeni dal olustur ve gec', kat:'git'},
+    {terim:'Merge', okunus:'morc', anlam:'Iki branch\'i birlestirmek. Ozellik dalini ana koda eklemek.', ornek:'git merge yeni-ozellik — yeni-ozellik dalini ana koda ekler', kat:'git'},
+    {terim:'Conflict', okunus:'konflikt', anlam:'Iki kisi ayni satiri degistirdiginde olusan catisma. Manuel cozulur.', ornek:'<<<< HEAD ... ==== ... >>>> branch-adi seklinde gosterilir', kat:'git'},
+    {terim:'Stage / Staging', okunus:'steyc', anlam:'Commit\'e dahil edilecek degisiklikleri hazirlamak. "Sahneye almak" gibi.', ornek:'git add dosya.js — dosyayi stage\'e alir', kat:'git'},
+    {terim:'Diff', okunus:'dif', anlam:'Iki versiyon arasindaki farki gostermek. Neyin degistigini gormek.', ornek:'VS Code\'da dosyaya tiklarsan kirmizi/yesil fark gorursun = diff', kat:'git'},
+    {terim:'Pull Request (PR)', okunus:'pul rikuest', anlam:'Kodunu incelemesi icin takima gonderdigin istek. "Su degisiklikleri ana koda ekleyelim mi?" demek.', ornek:'GitHub\'da "New Pull Request" butonuyla olusturulur', kat:'git'},
+    {terim:'Fork', okunus:'fork', anlam:'Baskasinin reposunu kendi hesabina kopyalamak. Ozgurce degisiklik yapabilirsin.', ornek:'Acik kaynak projeye katki icin once fork edersin', kat:'git'},
+    {terim:'.gitignore', okunus:'git-ignor', anlam:'Git\'in takip etmemesini istedigin dosyalari belirttigin dosya.', ornek:'node_modules/ ve .env dosyalari genelde .gitignore\'a eklenir', kat:'git'},
+    {terim:'Stash', okunus:'stas', anlam:'Yarim kalan degisiklikleri gecici olarak sakla, sonra geri getir.', ornek:'git stash — degisiklikleri sakla. git stash pop — geri getir', kat:'git'},
+
+    // WEB
+    {terim:'HTML', okunus:'eyctiemell', anlam:'HyperText Markup Language. Web sayfasinin iskeleti/yapisi. Basliklar, paragraflar, butonlar...', ornek:'<h1>Merhaba</h1> <p>Bu bir paragraf</p>', kat:'web'},
+    {terim:'CSS', okunus:'si-es-es', anlam:'Cascading Style Sheets. Web sayfasinin gorunumunu belirler. Renkler, boyutlar, yerlesim...', ornek:'body { background: black; color: white; }', kat:'web'},
+    {terim:'JavaScript (JS)', okunus:'cava-skript', anlam:'Web sayfasina hareket/etkilesim katan programlama dili. Butona tiklaninca bir sey yap gibi.', ornek:'document.getElementById("btn").onclick = function() { alert("hey!") }', kat:'web'},
+    {terim:'DOM', okunus:'dom', anlam:'Document Object Model. HTML\'in JavaScript ile erisilebildigi ag yapisi.', ornek:'document.getElementById("baslik") — HTML\'deki basligi JS ile yakalar', kat:'web'},
+    {terim:'Frontend', okunus:'frontEnd', anlam:'Kullanicinin gordugu ve etkilestigi taraf. HTML, CSS, JS...', ornek:'Bir butonun rengi, sayfanin tasarimi = frontend', kat:'web'},
+    {terim:'Backend', okunus:'bekEnd', anlam:'Kullanicinin gormedigi sunucu tarafi. Veritabani, islemler, guvenlik...', ornek:'Kullanici giris yapinca sifre kontrolu backend\'de olur', kat:'web'},
+    {terim:'Fullstack', okunus:'fulstEk', anlam:'Hem frontend hem backend yapabilen gelistirici veya uygulama.', ornek:'Hem React hem Node.js bilen kisi = fullstack developer', kat:'web'},
+    {terim:'Responsive', okunus:'risponsiv', anlam:'Farkli ekran boyutlarina uyum saglayan tasarim. Telefon, tablet, bilgisayar...', ornek:'@media (max-width: 768px) { ... } — telefon icin ozel stil', kat:'web'},
+    {terim:'HTTP / HTTPS', okunus:'eyctitipi', anlam:'Web\'de veri iletisim protokolu. HTTPS = sifreli/guvenli versiyonu.', ornek:'https://google.com — HTTPS ile guvenli baglanti', kat:'web'},
+    {terim:'URL', okunus:'yuarel', anlam:'Uniform Resource Locator. Web adresi.', ornek:'https://serhadkaya-del.github.io/serhad-tools/ bir URL', kat:'web'},
+    {terim:'Cookie', okunus:'kuki', anlam:'Tarayicida saklanan kucuk veri parcasi. Oturum bilgisi, tercihler icin kullanilir.', ornek:'Siteye giris yapinca cookie kaydedilir, tekrar giriste hatirlar', kat:'web'},
+    {terim:'LocalStorage', okunus:'lokıl-storac', anlam:'Tarayicida kalici veri saklama. Cookie\'den buyuk, sunucuya gitmez.', ornek:'localStorage.setItem("tema", "karanlik") — tema tercihini saklar', kat:'web'},
+    {terim:'npm', okunus:'en-pi-em', anlam:'Node Package Manager. JavaScript paketlerini (kutuphaneleri) yuklemek icin.', ornek:'npm install axios — axios kutuphanesini projeye ekler', kat:'web'},
+    {terim:'Deploy', okunus:'diploy', anlam:'Uygulamayi canli sunucuya yayinlamak. "Siteyi yayina almak."', ornek:'GitHub Pages ile deploy ettik = siteyi internete actik', kat:'web'},
+    {terim:'Server', okunus:'sorvır', anlam:'Istek alan ve cevap donduren bilgisayar/program.', ornek:'GitHub\'un sunuculari senin siteni kullanicilara sunar', kat:'web'},
+    {terim:'DNS', okunus:'di-en-es', anlam:'Domain Name System. Alan adini IP adresine cevirir.', ornek:'google.com yazinca DNS bunu 142.250.x.x IP\'sine cevirir', kat:'web'},
+
+    // MOBIL
+    {terim:'React Native', okunus:'riekt neytiv', anlam:'JavaScript ile iOS ve Android uygulama yapma framework\'u. Bir kod yaz, iki platformda calis.', ornek:'iptvAPP projesi React Native ile yapildi', kat:'mobil'},
+    {terim:'Component (Bilesen)', okunus:'kompınınt', anlam:'Kullanici arayuzunun yeniden kullanilabilir parcasi. Buton, kart, liste gibi.', ornek:'<LoginScreen /> — giris ekrani bir component', kat:'mobil'},
+    {terim:'State', okunus:'steyt', anlam:'Component\'in degisebilen verisi. State degisince ekran otomatik guncellenir.', ornek:'const [sayac, setSayac] = useState(0); // sayac state\'i', kat:'mobil'},
+    {terim:'Props', okunus:'props', anlam:'Component\'e disaridan verilen degerler. Sadece okunabilir.', ornek:'<Buton renk="kirmizi" /> — renk bir prop', kat:'mobil'},
+    {terim:'Navigation', okunus:'nevigeysin', anlam:'Ekranlar arasi gecis sistemi. Stack, Tab, Drawer turleri var.', ornek:'Ana sayfa → Detay sayfasina gecis = navigation', kat:'mobil'},
+    {terim:'Emulator / Simulator', okunus:'emyuleytır', anlam:'Bilgisayarda sanal telefon calistirmak. Android = emulator, iOS = simulator.', ornek:'Android Studio\'daki sanal telefon bir emulator', kat:'mobil'},
+    {terim:'Build', okunus:'bild', anlam:'Kodu derleyip cihazda calisabilir hale getirmek. APK (Android) veya IPA (iOS).', ornek:'npx react-native run-android — Android build\'i baslatir', kat:'mobil'},
+    {terim:'Bundle', okunus:'bandıl', anlam:'Tum JavaScript kodunu tek bir dosyada birlestirmek.', ornek:'Metro bundler React Native\'de JS kodunu paketler', kat:'mobil'},
+    {terim:'Hot Reload', okunus:'hat rilod', anlam:'Kod degisikligini aninda ekranda gormek, uygulama kapanmadan.', ornek:'JS dosyasini kaydedince emulator\'de aninda guncellenir', kat:'mobil'},
+    {terim:'APK', okunus:'ey-pi-key', anlam:'Android Application Package. Android uygulamasinin kurulum dosyasi.', ornek:'APK dosyasini telefona atip kurabilirsin', kat:'mobil'},
+    {terim:'CocoaPods', okunus:'kokopods', anlam:'iOS icin paket yoneticisi. iOS kutuphanelerini projeye ekler.', ornek:'pod install — iOS bagimliliklerini kurar', kat:'mobil'},
+    {terim:'Gradle', okunus:'greydıl', anlam:'Android icin build araci. Derleme, paketleme islerini yapar.', ornek:'android/build.gradle dosyasinda Android ayarlari bulunur', kat:'mobil'},
+
+    // GENEL
+    {terim:'Open Source (Acik Kaynak)', okunus:'opın sors', anlam:'Kaynak kodu herkesin gorebilecegi, kullanabilecegi yazilim.', ornek:'React, Linux, VS Code hepsi acik kaynak', kat:'genel'},
+    {terim:'Stack', okunus:'stek', anlam:'Bir projedeki teknoloji kombinasyonu.', ornek:'MERN Stack = MongoDB + Express + React + Node.js', kat:'genel'},
+    {terim:'Dependency (Bagimlilik)', okunus:'dipendınsi', anlam:'Projenin ihtiyac duydugu dis paket/kutuphane.', ornek:'package.json\'daki "dependencies" listesi = projenin bagimliliklari', kat:'genel'},
+    {terim:'Environment (Ortam)', okunus:'envayırmınt', anlam:'Kodun calistigi yer. Development (gelistirme), staging (test), production (canli).', ornek:'.env dosyasinda API anahtarlari gibi ortam degiskenleri tutulur', kat:'genel'},
+    {terim:'Terminal / CLI', okunus:'terminal / si-el-ay', anlam:'Komut satiri arayuzu. Yaziyla komut vererek bilgisayari yonetmek.', ornek:'Terminal\'de "npm start" yazarak uygulamayi baslatirsin', kat:'genel'},
+    {terim:'SDK', okunus:'es-di-key', anlam:'Software Development Kit. Belirli platform icin gelistirme araclari paketi.', ornek:'Android SDK — Android uygulamasi gelistirmek icin gerekli araclar', kat:'genel'},
+    {terim:'Refactor', okunus:'rifektır', anlam:'Kodu davranisini degistirmeden daha temiz/anlasilir hale getirmek.', ornek:'Ayni isi yapan 3 fonksiyonu tek bir genel fonksiyonda birlestirmek', kat:'genel'},
+    {terim:'Legacy Code', okunus:'legısi kod', anlam:'Eski, genelde kimsenin dokunmak istemedigi kod.', ornek:'"Bu legacy kod, dokunma bozulur" — yaygin developer sohbeti', kat:'genel'},
+    {terim:'Production', okunus:'prodaksiyon', anlam:'Canli ortam. Gercek kullanicilarin kullandigi versiyon.', ornek:'"Production\'a deploy ettik" = siteyi yayina aldik', kat:'genel'},
+    {terim:'Localhost', okunus:'lokılhost', anlam:'Kendi bilgisayarinda calisan yerel sunucu. Test icin kullanilir.', ornek:'http://localhost:3000 — kendi bilgisayarinda calisan site', kat:'genel'},
+    {terim:'Token', okunus:'tokın', anlam:'Kimlik dogrulama icin kullanilan ozel anahtar/sifre.', ornek:'GitHub token\'i ile git push yapabilirsin', kat:'genel'},
+    {terim:'Endpoint', okunus:'endpoint', anlam:'API\'nin belirli bir adresindeki erisim noktasi.', ornek:'/api/users — kullanici listesini donduren endpoint', kat:'genel'},
+    {terim:'Cache', okunus:'kes', anlam:'Sik kullanilan verileri hizli erismek icin gecici olarak saklamak.', ornek:'Tarayici CSS dosyasini cache\'ler, her seferinde indirmez', kat:'genel'},
+    {terim:'Latency', okunus:'leytınsi', anlam:'Gecikme suresi. Istek gonderip cevap alma arasindaki sure.', ornek:'Sunucu uzaktaysa latency yuksek olur, sayfa gec acilar', kat:'genel'},
+    {terim:'Middleware', okunus:'midılver', anlam:'Istek ile cevap arasinda calisan ara katman.', ornek:'Kullanici giris yapti mi kontrolu bir middleware ile yapilir', kat:'genel'},
+    {terim:'Boilerplate', okunus:'boylerpleyt', anlam:'Her projede tekrarlanan temel/baslangic kodu.', ornek:'npx react-native init MyApp — boilerplate olusturur', kat:'genel'},
+    {terim:'Snippet', okunus:'snippet', anlam:'Kucuk, yeniden kullanilabilir kod parcasi.', ornek:'VS Code\'da "rfce" yazinca React component snippet\'i olusur', kat:'genel'},
+    {terim:'Linter', okunus:'lintır', anlam:'Kodu tarayip hata ve kotu pratikleri bulan arac.', ornek:'ESLint — "bu degisken tanimlanmis ama kullanilmamis" der', kat:'genel'},
+    {terim:'TypeScript', okunus:'tayp-skript', anlam:'JavaScript\'e tip guvenligi ekleyen dil. Hatalari yazarken yakalar.', ornek:'let ad: string = "Serhad"; // ad sadece string olabilir', kat:'genel'},
+    {terim:'Vibe Coding', okunus:'vayb koding', anlam:'AI ile birlikte, sezgisel sekilde kod yazmak. Detaylara takilmadan akista kalmak.', ornek:'Claude\'a "bana bi takvim yap" demek = vibe coding', kat:'genel'},
+];
+
+let aktifSozlukKat = 'hepsi';
+
+function sozlukFiltre() {
+    const aranan = document.getElementById('sozlukAra').value.toLowerCase();
+    const liste = document.getElementById('sozlukListe');
+    const sayac = document.getElementById('sozlukSayac');
+
+    let sonuclar = sozlukVerisi;
+    if (aktifSozlukKat !== 'hepsi') {
+        sonuclar = sonuclar.filter(s => s.kat === aktifSozlukKat);
+    }
+    if (aranan) {
+        sonuclar = sonuclar.filter(s =>
+            s.terim.toLowerCase().includes(aranan) ||
+            s.anlam.toLowerCase().includes(aranan)
+        );
+    }
+
+    sayac.textContent = sonuclar.length + ' terim bulundu';
+
+    liste.innerHTML = sonuclar.map(s => `
+        <div class="sozluk-item" onclick="this.classList.toggle('acik')">
+            <div class="terim-baslik">
+                <span class="terim">${s.terim}</span>
+                <span class="kategori-badge">${s.kat}</span>
+            </div>
+            <div class="okunus">${s.okunus}</div>
+            <div class="anlam">${s.anlam}</div>
+            <div class="ornek">${s.ornek}</div>
+        </div>
+    `).join('');
+}
+
+function sozlukKat(kat) {
+    aktifSozlukKat = kat;
+    document.querySelectorAll('.soz-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    sozlukFiltre();
+}
+
 // --- Hesap Tab Degistirme ---
 function hesapTabDegistir(id) {
     document.querySelectorAll('.hesap-panel').forEach(p => p.classList.remove('active'));
@@ -237,6 +377,7 @@ function sicaklikCevir(deger, kimden, kime) {
 
 // --- Notlar ---
 window.addEventListener('load', function() {
+    sozlukFiltre();
     const kayitliNot = localStorage.getItem('serhad-notlar');
     if (kayitliNot) {
         document.getElementById('notAlani').value = kayitliNot;
